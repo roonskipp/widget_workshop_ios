@@ -21,6 +21,10 @@ For å legge til en widget må du:
 
 ![picture showing the new files](readme_images/find_new_widget_files.png)
 
+
+### Gratulerer du har lagt til en widget til iOS prosjektet.
+Nå må vi forstå hva de er vi har lagt til.
+
 </details>
 
 
@@ -35,11 +39,63 @@ Du kan enkelt endre dette når som helst ved å trykke på produktet/valgt schem
 ![Change scheme](readme_images/change_scheme_1.png)
 ![Change scheme dropdown](readme_images/change_scheme_2.png)
 Hvis man jobber med ulike produkter som Widget, iOS App, WatchOS app, så bytter man ofte mellom disse.
+</details>
 
-</deatils>
+<details>
+<summary>2. Hva har vi lagt til?</summary>
 
-### Gratulerer du har lagt til en widget til iOS prosjektet.
-Nå må vi forstå hva de er vi har lagt til.
 
 ## 2.0 
+I den nye mappen som ble generert ligger det fire filer. Nå inneholder de eksempelkode fra Apple for deres "Emoji Ranger Widget". 
 
+Alle filene begynner med navnet du valgte på widgtenen. Vi kommer til å kalle den for "widget_navn" i guiden. Filene er altså:
+
+1. widget_navn
+2. widget_navn_widgetBundle
+3. widget_navn_widgetControl
+4. widget_navn_widgetLiveActivity
+
+<details>
+<summary>widget_navn</summary>
+
+### widget_navn
+Denne filen er selve widgeten, og det er her vi kommer til å jobbe mest i dag. Dette er filen som lager widget som lever på hjemskjermen og låseskjermen på iPhone. Nå inneholder filen et autogenerert widget-eksempel med noen emojis.
+
+</details>
+
+<details>
+<summary>widget_navn_widgetLiveActivity</summary>
+
+### widget_navn_widgetLiveActivity
+Denne filen er en såkalt "Live Activity" widget. Hvis du har kjøpt en kollektivtrafikkbillett, eller bestilt mat fra wolt/foodora kan det hende du har sett en timer på låseskjermen på iPhone som sier hvor lenge det er igjen av billetten din, eller hvor lenge det er til maten ankommer. Disse er "Live Activites". Hvis du ønsker en slik i din app, så er denne filen et autogenerert eksempel fra Apple.
+
+https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities
+
+</details>
+
+<details>
+<summary>widget_navn_widgetControl</summary>
+
+### widget_navn_widgetControl
+Dette er en "Control Widget". For å la brukere konfigurere widgets (endre farge, endre hvilke felt som vises i widgeten), så kan man legge til en Control Widget. 
+
+En bruker vil da kunne "long-presse" på en widget, for å få opp Control Widgeten. 
+
+Du kan tenke på det som et ekstra view på widgeten hvor man kan endre på settings.
+
+Filen har autogenerert eksempelkode for Apple sin Emoji Ranger widget.
+
+https://developer.apple.com/documentation/swiftui/controlwidget
+
+</details>
+
+<details>
+<summary>widget_navn_widgetBundle</summary>
+
+### widget_navn_widgetBundle
+Dette er en fil som eksponerer widgetsene dine ut til iOS. Hvis du har laget flere widgets, som en home screen widget, og en live activity, så kan de wrappes i en widgetBundle slik at de alle blir tilgjengelige på iPhone hvis appen din er installert.
+
+https://developer.apple.com/documentation/swiftui/widgetbundle
+</details>
+
+</details>
