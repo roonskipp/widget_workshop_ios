@@ -46,6 +46,8 @@ Hvis man jobber med ulike produkter som Widget, iOS App, WatchOS app, så bytter
 
 
 ## 2.0 
+*Her forklares hva vi har lagt til av kode fra Apple. Hvis du ikke er interessert kan du hoppe rett til punkt 3.*
+
 I den nye mappen som ble generert ligger det fire filer. Nå inneholder de eksempelkode fra Apple for deres "Emoji Ranger Widget". 
 
 Alle filene begynner med navnet du valgte på widgtenen. Vi kommer til å kalle den for "widget_navn" i guiden. Filene er altså:
@@ -54,6 +56,7 @@ Alle filene begynner med navnet du valgte på widgtenen. Vi kommer til å kalle 
 2. widget_navn_widgetBundle
 3. widget_navn_widgetControl
 4. widget_navn_widgetLiveActivity
+5. AppIntent
 
 <details>
 <summary>widget_navn</summary>
@@ -96,6 +99,58 @@ https://developer.apple.com/documentation/swiftui/controlwidget
 Dette er en fil som eksponerer widgetsene dine ut til iOS. Hvis du har laget flere widgets, som en home screen widget, og en live activity, så kan de wrappes i en widgetBundle slik at de alle blir tilgjengelige på iPhone hvis appen din er installert.
 
 https://developer.apple.com/documentation/swiftui/widgetbundle
+
 </details>
+
+<details>
+<summary>AppIntent (WidgetConfigurationIntent)</summary>
+
+### WidgetConfigurationIntent
+
+</details>
+
+
+</details>
+
+---
+
+<details>
+<summary>Prøv å kjør widget (fiks error)</summary>
+
+### Kjør widgeten på simulator eller device
+Kjør eksempel-widgeten på simulator ved å trykke play i XCode. Får du sett emoji-ranger widgeten? Prøv å long-presse for å få opp widget control.
+
+### Feilsøking
+Det kan hende du får feilen som på bildet her:
+![Error running widget 1](readme_images/crash_running_example_widget.png)
+
+![Error running widget highlight msg](readme_images/crash_running_example_widget_error_msg.png)
+
+For å fikse dette må vi inn i scheme-et for widgeten og sette hvilken widget vi ønsker at xcode skal kjøre i gang på simulatoren / devicen din.
+
+Følg bildene:
+
+![Change scheme dropdown](readme_images/change_scheme_1.png)
+
+![Change scheme dropdown](readme_images/edit_widget_scheme.png)
+
+![Change scheme dropdown](readme_images/edit_widget_scheme_arguments.png)
+
+![Change scheme dropdown](readme_images/edit_widget_scheme_widget_name_kind.png)
+
+**OBS! Vær nøye med at du skriver inn nøyaktig samme string som widget-filen din heter**
+
+Prøv å kjør på nytt. Nå skal det fungere.
+
+</details>
+
+---
+
+<details>
+<summary>3 Hvordan fungerer widgeten?</summary>
+
+### 4. Hvordan fungerer widgeten?
+
+
 
 </details>
