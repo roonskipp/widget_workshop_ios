@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		994879C62CCE369000EEA50F /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 994879C52CCE368C00EEA50F /* readme */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		994879A82CCE360000EEA50F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		994879972CCE35FF00EEA50F /* widget_workshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widget_workshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		994879A72CCE360000EEA50F /* widget_workshopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = widget_workshopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		994879B12CCE360000EEA50F /* widget_workshopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = widget_workshopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		994879C52CCE368C00EEA50F /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		9948798E2CCE35FF00EEA50F = {
 			isa = PBXGroup;
 			children = (
+				994879C52CCE368C00EEA50F /* readme */,
 				994879992CCE35FF00EEA50F /* widget_workshop */,
 				994879AA2CCE360000EEA50F /* widget_workshopTests */,
 				994879B42CCE360000EEA50F /* widget_workshopUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				994879C62CCE369000EEA50F /* readme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
