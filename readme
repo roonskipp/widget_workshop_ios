@@ -90,6 +90,21 @@ Filen har autogenerert eksempelkode for Apple sin Emoji Ranger widget.
 
 https://developer.apple.com/documentation/swiftui/controlwidget
 
+Se hvordan det fungerer med emoji-ranger eksempelet fra apple:
+1. Long press på widgeten på hjemskjermen
+![Widget on home screen](readme_images/running_widget_on_simulator.png)
+
+2. Etter å ha longpressed vil du se en meny, velg "Edit Widget"
+![Long press widget](readme_images/long_press_widget.png)
+
+3. Du skal nå se Widget Control-koden din på devicen / simulatoren du kjører på. Kjenner du igjen koden?
+![View of widget control](readme_images/edit_widget_control_widget.png)
+
+4. Prøv å endre teksten på favourite emoji.
+![Change favourite emoji in widget control](readme_images/widget_control_changed_favourite_emoji.png)
+
+5. Trykk utenfor Widget Control for å lukke den, og se resultatet av endringene på hjemskjermen i widgeten. ![Result of changed value in widget control](readme_images/result_of_chaning_widget_control.png)
+
 </details>
 
 <details>
@@ -130,17 +145,19 @@ For å fikse dette må vi inn i scheme-et for widgeten og sette hvilken widget v
 
 Følg bildene:
 
-![Change scheme dropdown](readme_images/change_scheme_1.png)
+![Edit scheme dropdown](readme_images/change_scheme_1.png)
 
-![Change scheme dropdown](readme_images/edit_widget_scheme.png)
+![Select the correct scheme for editing](readme_images/edit_widget_scheme.png)
 
-![Change scheme dropdown](readme_images/edit_widget_scheme_arguments.png)
+![Locate widget kind name](readme_images/edit_widget_scheme_arguments.png)
 
-![Change scheme dropdown](readme_images/edit_widget_scheme_widget_name_kind.png)
+![Set widget kind name](readme_images/edit_widget_scheme_widget_name_kind.png)
 
 **OBS! Vær nøye med at du skriver inn nøyaktig samme string som widget-filen din heter**
 
 Prøv å kjør på nytt. Nå skal det fungere.
+
+![Running widget on simulator](readme_images/running_widget_on_simulator.png)
 
 </details>
 
@@ -149,8 +166,41 @@ Prøv å kjør på nytt. Nå skal det fungere.
 <details>
 <summary>3 Hvordan fungerer widgeten?</summary>
 
-### 4. Hvordan fungerer widgeten?
+### 3. Hvordan fungerer widgeten?
+Før vi setter i gang med å endre widgeten må vi vite hvordan en widget kjører og fungerer.
 
-
+TODO forklare funksjonene i widget-koden
 
 </details>
+
+<details>
+<summary>4. Endre widget-koden</summary>
+
+</details>
+
+<details>
+
+<summary>6. Shared storage</summary>
+
+Antall timeline entires per døgn
+
+Lov til å oppdatere hver gang inne i appen
+(prøv å endre noe data ved app-open og la det oppdatere widget)
+
+Forskjell på å kjøre via XCode og naturlig fra app-store installasjon (angry emoji)
+
+</details>
+
+<summary>5. Widget begrensninger</summary>
+
+30 MB RAM -> widget killes hvis den overskrider
+
+Antall timeline entires per døgn
+
+Lov til å oppdatere hver gang inne i appen
+(prøv å endre noe data ved app-open og la det oppdatere widget)
+
+Forskjell på å kjøre via XCode og naturlig fra app-store installasjon (angry emoji)
+
+</details>
+
