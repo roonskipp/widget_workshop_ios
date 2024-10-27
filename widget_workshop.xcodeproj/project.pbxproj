@@ -12,6 +12,13 @@
 		994879D02CCE384F00EEA50F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994879CF2CCE384F00EEA50F /* SwiftUI.framework */; };
 		994879E12CCE385000EEA50F /* widget_workshop_widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 994879CB2CCE384F00EEA50F /* widget_workshop_widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		994879E82CCE3BB300EEA50F /* find_new_widget_files.png in Resources */ = {isa = PBXBuildFile; fileRef = 994879E72CCE3BB300EEA50F /* find_new_widget_files.png */; };
+		994879F12CCE3D3000EEA50F /* change_scheme_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 994879EB2CCE3D3000EEA50F /* change_scheme_2.png */; };
+		994879F22CCE3D3000EEA50F /* change_scheme_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 994879EA2CCE3D3000EEA50F /* change_scheme_1.png */; };
+		994879F32CCE3D3000EEA50F /* search_for_widget.png in Resources */ = {isa = PBXBuildFile; fileRef = 994879EE2CCE3D3000EEA50F /* search_for_widget.png */; };
+		994879F42CCE3D3000EEA50F /* start_project_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 994879EF2CCE3D3000EEA50F /* start_project_plus.png */; };
+		994879F52CCE3D3000EEA50F /* do_you_want_scheme.png in Resources */ = {isa = PBXBuildFile; fileRef = 994879EC2CCE3D3000EEA50F /* do_you_want_scheme.png */; };
+		994879F62CCE3D3000EEA50F /* give_extension_product_name.png in Resources */ = {isa = PBXBuildFile; fileRef = 994879ED2CCE3D3000EEA50F /* give_extension_product_name.png */; };
+		994879F72CCE3D3000EEA50F /* start_project_screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 994879F02CCE3D3000EEA50F /* start_project_screenshot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +68,13 @@
 		994879CD2CCE384F00EEA50F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		994879CF2CCE384F00EEA50F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		994879E72CCE3BB300EEA50F /* find_new_widget_files.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find_new_widget_files.png; sourceTree = "<group>"; };
+		994879EA2CCE3D3000EEA50F /* change_scheme_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_scheme_1.png; sourceTree = "<group>"; };
+		994879EB2CCE3D3000EEA50F /* change_scheme_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_scheme_2.png; sourceTree = "<group>"; };
+		994879EC2CCE3D3000EEA50F /* do_you_want_scheme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = do_you_want_scheme.png; sourceTree = "<group>"; };
+		994879ED2CCE3D3000EEA50F /* give_extension_product_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = give_extension_product_name.png; sourceTree = "<group>"; };
+		994879EE2CCE3D3000EEA50F /* search_for_widget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_for_widget.png; sourceTree = "<group>"; };
+		994879EF2CCE3D3000EEA50F /* start_project_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_project_plus.png; sourceTree = "<group>"; };
+		994879F02CCE3D3000EEA50F /* start_project_screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_project_screenshot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -171,6 +185,13 @@
 			isa = PBXGroup;
 			children = (
 				994879E72CCE3BB300EEA50F /* find_new_widget_files.png */,
+				994879EA2CCE3D3000EEA50F /* change_scheme_1.png */,
+				994879EB2CCE3D3000EEA50F /* change_scheme_2.png */,
+				994879EC2CCE3D3000EEA50F /* do_you_want_scheme.png */,
+				994879ED2CCE3D3000EEA50F /* give_extension_product_name.png */,
+				994879EE2CCE3D3000EEA50F /* search_for_widget.png */,
+				994879EF2CCE3D3000EEA50F /* start_project_plus.png */,
+				994879F02CCE3D3000EEA50F /* start_project_screenshot.png */,
 			);
 			path = readme_images;
 			sourceTree = "<group>";
@@ -324,6 +345,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				994879C62CCE369000EEA50F /* readme in Resources */,
+				994879F12CCE3D3000EEA50F /* change_scheme_2.png in Resources */,
+				994879F22CCE3D3000EEA50F /* change_scheme_1.png in Resources */,
+				994879F32CCE3D3000EEA50F /* search_for_widget.png in Resources */,
+				994879F42CCE3D3000EEA50F /* start_project_plus.png in Resources */,
+				994879F52CCE3D3000EEA50F /* do_you_want_scheme.png in Resources */,
+				994879F62CCE3D3000EEA50F /* give_extension_product_name.png in Resources */,
+				994879F72CCE3D3000EEA50F /* start_project_screenshot.png in Resources */,
 				994879E82CCE3BB300EEA50F /* find_new_widget_files.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

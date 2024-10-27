@@ -1,25 +1,42 @@
 # Widget Workshop
 I denne workshopen skal du lære å opprette widgets i et iOS swift prosjekt.
 
+<details>
+<summary>1. Legge til en widget</summary>
+
 ## 1.0 - Legge til en widget
 For å legge til en widget må du:
-1. Velge prosjektet i Xcode i explorer. 
+1. Velg prosjektet i Xcode i explorer. 
+![Select the project](readme_images/start_project_screenshot.png)
 2. Deretter trykker du på plus-tegnet nederst i "General". 
+![Press the plus icon](readme_images/start_project_plus.png)
 3. Søk etter widget i vinduet som dukker opp. 
+![Search for widget](readme_images/search_for_widget.png)
 4. Velg et navn på widgeten
+![Give new extension a name](readme_images/give_extension_product_name.png)
 5. Du får spørsmål om scheme, her er det ikke så farlig hva du velger. Men trykk gjerne activate. Se punkt under om scheme.
+![Do you want to change scheme prompt](readme_images/do_you_want_scheme.png)
 6. Naviger til den nye mappen som ble lagt til, med navnet du valgte i tidligere steg.
 7. Åpne filen med samme navn som mappen. Du bør kunne se en widget dukke opp i preview.
 
 ![picture showing the new files](readme_images/find_new_widget_files.png)
 
+</details>
+
+
+<details>
+<summary>Hva er scheme?</summary>
 
 ### Scheme
 Tidligere fikk du spørsmål fra XCode om du ønsket å aktivere scheme for widgeten. Det scheme gjør er (grovt forenklet) å si hvilket produkt i prosjektet ditt du ønsker å bygge og kjøre på en simulator eller telefon.
 
 Du kan enkelt endre dette når som helst ved å trykke på produktet/valgt scheme øverst i XCode. 
 
+![Change scheme](readme_images/change_scheme_1.png)
+![Change scheme dropdown](readme_images/change_scheme_2.png)
 Hvis man jobber med ulike produkter som Widget, iOS App, WatchOS app, så bytter man ofte mellom disse.
+
+</deatils>
 
 ### Gratulerer du har lagt til en widget til iOS prosjektet.
 Nå må vi forstå hva de er vi har lagt til.
