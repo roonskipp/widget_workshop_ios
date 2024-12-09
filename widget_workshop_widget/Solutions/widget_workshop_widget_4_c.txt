@@ -1,0 +1,107 @@
+//
+//  widget_workshop_widget.swift
+//  widget_workshop_widget
+//
+//  Created by Tobias Skjelvik on 27/10/2024.
+//
+
+import WidgetKit
+import SwiftUI
+
+struct Provider: AppIntentTimelineProvider {
+    func placeholder(in context: Context) -> SimpleEntry {
+        SimpleEntry(secretMessage: "Chocolate", date: Date(), configuration: ConfigurationAppIntent())
+    }
+
+    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
+        SimpleEntry(secretMessage: "Fruit", date: Date(), configuration: configuration)
+    }
+    
+    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
+        var entries: [SimpleEntry] = []
+
+        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let currentDate = Date()
+        for hourOffset in 0 ..< 3 {
+            let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset, to: currentDate)!
+            
+            let secretMessage = switch(hourOffset){
+                case(0):
+                    "GOAT"
+                case(1):
+                    "Gedagedigedagedao"
+                case(2):
+                    "What the sigma?"
+                default:
+                 "oi oi oi"
+            }
+            
+            print(secretMessage);
+            
+            let entry = SimpleEntry(
+                secretMessage: secretMessage,
+                date: entryDate, configuration: configuration)
+            entries.append(entry)
+        }
+
+        return Timeline(entries: entries, policy: .atEnd)
+    }
+
+//    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
+//        // Generate a list containing the contexts this widget is relevant in.
+//    }
+}
+
+struct SimpleEntry: TimelineEntry {
+    var secretMessage: String = "Skibidi"
+    let date: Date
+    let configuration: ConfigurationAppIntent
+}
+
+struct widget_workshop_widgetEntryView : View {
+    var entry: Provider.Entry
+
+    var body: some View {
+        VStack {
+            Text("Skibidi Christmas")
+            Text(entry.date, style: .time)
+            
+            Text(entry.secretMessage)
+            
+            Text("Favorite Emoji:")
+            Text(entry.configuration.favoriteEmoji)
+        }
+    }
+}
+
+struct widget_workshop_widget: Widget {
+    let kind: String = "widget_workshop_widget"
+
+    var body: some WidgetConfiguration {
+        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
+            widget_workshop_widgetEntryView(entry: entry)
+                .containerBackground(.fill.tertiary, for: .widget)
+        }
+    }
+}
+
+extension ConfigurationAppIntent {
+    fileprivate static var smiley: ConfigurationAppIntent {
+        let intent = ConfigurationAppIntent()
+        intent.favoriteEmoji = "😀"
+        return intent
+    }
+    
+    fileprivate static var starEyes: ConfigurationAppIntent {
+        let intent = ConfigurationAppIntent()
+        intent.favoriteEmoji = "🤩"
+        return intent
+    }
+}
+
+#Preview(as: .systemSmall) {
+    widget_workshop_widget()
+} timeline: {
+    SimpleEntry(date: .now, configuration: .smiley)
+    SimpleEntry(date: .now, configuration: .starEyes)
+}

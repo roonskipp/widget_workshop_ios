@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		994879C62CCE369000EEA50F /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 994879C52CCE368C00EEA50F /* readme */; };
+		990A2FF02D07638200E284A5 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 994879C52CCE368C00EEA50F /* readme.md */; };
+		994879C62CCE369000EEA50F /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 994879C52CCE368C00EEA50F /* readme.md */; };
 		994879CE2CCE384F00EEA50F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994879CD2CCE384F00EEA50F /* WidgetKit.framework */; };
 		994879D02CCE384F00EEA50F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994879CF2CCE384F00EEA50F /* SwiftUI.framework */; };
 		994879E12CCE385000EEA50F /* widget_workshop_widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 994879CB2CCE384F00EEA50F /* widget_workshop_widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -73,7 +74,7 @@
 		994879972CCE35FF00EEA50F /* widget_workshop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widget_workshop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		994879A72CCE360000EEA50F /* widget_workshopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = widget_workshopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		994879B12CCE360000EEA50F /* widget_workshopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = widget_workshopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		994879C52CCE368C00EEA50F /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
+		994879C52CCE368C00EEA50F /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		994879CB2CCE384F00EEA50F /* widget_workshop_widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widget_workshop_widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		994879CD2CCE384F00EEA50F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		994879CF2CCE384F00EEA50F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -98,14 +99,34 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		990A30592D076FFB00E284A5 /* Exceptions for "widget_workshop_widget" folder in "widget_workshop" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppIntent.swift,
+			);
+			target = 994879962CCE35FF00EEA50F /* widget_workshop */;
+		};
 		994879E22CCE385000EEA50F /* Exceptions for "widget_workshop_widget" folder in "widget_workshop_widgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				Solutions/widget_workshop_widget_4_a.txt,
+				Solutions/widget_workshop_widget_5.txt,
 			);
 			target = 994879CA2CCE384F00EEA50F /* widget_workshop_widgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		990A2FFA2D0767F600E284A5 /* Exceptions for "widget_workshop_widget" folder in "Compile Sources" phase from "widget_workshop_widgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 994879C72CCE384F00EEA50F /* Sources */;
+			membershipExceptions = (
+				Solutions/widget_workshop_widget_4_a.txt,
+				Solutions/widget_workshop_widget_5.txt,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		994879992CCE35FF00EEA50F /* widget_workshop */ = {
@@ -126,7 +147,9 @@
 		994879D12CCE384F00EEA50F /* widget_workshop_widget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				990A30592D076FFB00E284A5 /* Exceptions for "widget_workshop_widget" folder in "widget_workshop" target */,
 				994879E22CCE385000EEA50F /* Exceptions for "widget_workshop_widget" folder in "widget_workshop_widgetExtension" target */,
+				990A2FFA2D0767F600E284A5 /* Exceptions for "widget_workshop_widget" folder in "Compile Sources" phase from "widget_workshop_widgetExtension" target */,
 			);
 			path = widget_workshop_widget;
 			sourceTree = "<group>";
@@ -171,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				994879E92CCE3BBB00EEA50F /* readme_images */,
-				994879C52CCE368C00EEA50F /* readme */,
+				994879C52CCE368C00EEA50F /* readme.md */,
 				994879992CCE35FF00EEA50F /* widget_workshop */,
 				994879AA2CCE360000EEA50F /* widget_workshopTests */,
 				994879B42CCE360000EEA50F /* widget_workshopUITests */,
@@ -374,7 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				994879C62CCE369000EEA50F /* readme in Resources */,
+				994879C62CCE369000EEA50F /* readme.md in Resources */,
 				994879FA2CCE47A000EEA50F /* crash_running_example_widget_error_msg.png in Resources */,
 				99487A072CCE492600EEA50F /* result_of_chaning_widget_control.png in Resources */,
 				99487A082CCE492600EEA50F /* long_press_widget.png in Resources */,
@@ -414,6 +437,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				990A2FF02D07638200E284A5 /* readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +623,7 @@
 				DEVELOPMENT_TEAM = ADV4LU6NX9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "widget-workshop-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -628,6 +653,7 @@
 				DEVELOPMENT_TEAM = ADV4LU6NX9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "widget-workshop-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

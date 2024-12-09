@@ -431,18 +431,337 @@ Her har kan du tilogmed trykke play og loop, og se widgeten simulere endring i t
 <details>
 <summary>4. Endre widget-koden</summary>
 
+
+## Tid for å endre litt på koden.
+Vi begynner med noe enkelt.
+
+### 4a
+
+Naviger til filen `<project_name>_widget`.
+Naviger til 
+
+```
+struct SimpleEntry: TimelineEntry {
+    let date: Date
+    let configuration: ConfigurationAppIntent
+}
+
+struct widget_workshop_widgetEntryView : View {
+    var entry: Provider.Entry
+
+    var body: some View {
+        VStack {
+            Text("Time:")
+            Text(entry.date, style: .time)
+
+            Text("Favorite Emoji:")
+            Text(entry.configuration.favoriteEmoji)
+        }
+    }
+}
+
+```
+
+Prøv å endre noe i VStacken, som f.eks `Text("Time")` til `Text("Skibidi christmas")`.
+
+Etterpå kan du prøve å se at widgeten har endret seg i både widget preview (der du velger widgets) og på selve widgeten på hjem-skjermen. (Du finner løsning i solutions 4a)
+
+### 4b 
+
+Nå skal vi prøve å endre på dataen som sendes inn i snapshot (preview av widgeten) - og se at vi kan ha forskjellige ting som rendres på hjem-skjermen og på snapshot.
+
+Klarer du å få placeholderen til å si "Chocolate", Preview til å si "Skibidi" og kjørende i simulator til å si "Water"?
+
+
+<details>
+<summary>Tips</summary>
+
+Du må endre på `SimpleEntry`
+
+</details>
+
+<details>
+<summary>SPOILER: Løsning</summary>
+
+Du må endre på `SimpleEntry`. 
+Legg til en ekstra variabel av typen `String`. Her: `var secretMessage: String = "Skibidi"`
+
+```
+struct SimpleEntry: TimelineEntry {
+    var secretMessage: String = "Skibidi"
+    let date: Dat`
+    let configuration: ConfigurationAppIntent
+}
+```
+
+Deretter må du oppdatere viewet til widgeten din:
+
+Her må vi kalle på `entry` som holder variabelen i `SimpleEntry`.
+
+```
+struct widget_workshop_widgetEntryView : View {
+    var entry: Provider.Entry
+
+    var body: some View {
+        VStack {
+            Text("Skibidi Christmas")
+            Text(entry.date, style: .time)
+            
+            Text(entry.secretMessage)
+            
+            Text("Favorite Emoji:")
+            Text(entry.configuration.favoriteEmoji)
+        }
+    }
+}
+```
+
+Nå skal du få en del feilmeldinger fra `snapshot`, `timeline`, `placeholder` og `#Preview`. Send inn den nye variabelen din og se de flotte beskjedene på hjemskjermen, preview og i preview ved valg av widget på iOS.
+
+</details>
+
+### 4c - timeline
+Nå er vi endelig på den mest spennende delen. Timeline.
+
+Nå ser timeline funksjonen din forhåpentligvis ca slik ut: 
+
+```
+func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
+        var entries: [SimpleEntry] = []
+
+        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let currentDate = Date()
+        for hourOffset in 0 ..< 5 {
+            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+
+
+            let entry = SimpleEntry(
+                secretMessage: "Water",
+                date: entryDate, configuration: configuration)
+            entries.append(entry)
+        }
+
+        return Timeline(entries: entries, policy: .atEnd)
+    }
+```
+
+Husker du hvordan dette fungerer? Vi sender en liste med 5 widget states til widgeten vår, som widgeten setter som view ved hver date `entryDate`. 
+
+Klarer du å få widgeten til å endre seg hvert minutt i tre minutter? Kan du få den til å si "GOAT", "Gedagedigedagedao" og "What the sigma?" i minutt 1, 2 og 3?
+
+<details>
+<summary>Tips</summary>
+Du må endre noe ved loopen, entryDate som sendes inn, og secretMessage.
+</details>
+
+
+<details>
+<summary>SPOILER: Løsning</summary>
+
+Endre loopen til å bare gå til 3, endre fra hour til minute i `Calendar.current.date(byAdding: .hour)`, og send inn en secretMessage.
+
+```
+  func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
+        var entries: [SimpleEntry] = []
+
+        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let currentDate = Date()
+        for hourOffset in 0 ..< 3 {
+            let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset, to: currentDate)!
+            
+            let secretMessage = switch(hourOffset){
+                case(0):
+                    "GOAT"
+                case(1):
+                    "Gedagedigedagedao"
+                case(2):
+                    "What the sigma?"
+                default:
+                 "oi oi oi"
+            }
+            
+            let entry = SimpleEntry(
+                secretMessage: secretMessage,
+                date: entryDate, configuration: configuration)
+            entries.append(entry)
+        }
+
+        return Timeline(entries: entries, policy: .atEnd)
+    }
+```
+
+
+</details>
+
 </details>
 
 <details>
 
-<summary>6. Shared storage</summary>
+<summary>5. Oppdatere Widget fra iOS-appen</summary>
 
-Antall timeline entires per døgn
+Nå skal du forsøke å oppdatere widgeten fra iOS appen.
 
-Lov til å oppdatere hver gang inne i appen
-(prøv å endre noe data ved app-open og la det oppdatere widget)
+I `<project_name>_widget` fila har du funksjonen `timeline` som vi nettopp har puslet på. I bunnen av denne kan du se at det returnerer en `Timeline` med en `police: .atEnd`. Denne policyen forteller widgeten når den skal kjøre `timeline`-funksjonen neste gang. `.atEnd` vil gjøre at widgeten forsøker å kjøre `timeline` for å generere en ny timeline når den forrige har løpt gjennom sin siste entry. Dette vil fungere så lenge appen ikke har brukt opp "budsjettet" sitt for antall timeline-genereringer. Les mer om dette i `7. Widget bergrensninger eller pitfalls`. 
 
-Forskjell på å kjøre via XCode og naturlig fra app-store installasjon (angry emoji)
+En annen policy er `.never`. Den vil gjøre det slik at widgeten aldri vil oppdatere med mindre appen som widgeten tilhører ber widgeten om å oppdatere seg. Hvis widget oppdateres fra appen -> brukes ikke budsjettet for antall refreshes. Med andre ord vil widgeten alltid bli refreshet etter at appen ber den refreshe.
+
+
+
+Sett widgeten til å få `.never` som policy, og naviger til filen `ContentView` i iOS prosjektet (folderen skal hete `<project_name>`). Siden widgeten vår skal oppdateres fra Appen, bør vi også ha noe vi kan se endrer seg. La oss legge til et timestamp i widgeten.
+
+```
+extension Date {
+    var millisecondsSince1970:Int64 {
+        Int64((self.timeIntervalSince1970 * 1000.0).rounded())
+    }
+    
+    init(milliseconds:Int64) {
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds) / 1000)
+    }
+}
+
+struct SimpleEntry: TimelineEntry {
+    var timeStamp: Int64 = 0
+    var secretMessage: String = "Skibidi"
+    let date: Date
+    let configuration: ConfigurationAppIntent
+}
+
+struct widget_workshop_widgetEntryView : View {
+    var entry: Provider.Entry
+
+    var body: some View {
+        VStack {
+            Text("Skibidi Christmas")
+            Text(entry.date, style: .date)
+            Text("\(entry.timeStamp)")
+            Text(entry.secretMessage)
+
+            Text("Favorite Emoji:")
+            Text(entry.configuration.favoriteEmoji)
+        }
+    }
+}
+
+```
+
+Her har vi lagt til en extension-medtode (hentet her: https://stackoverflow.com/a/40135192) for å enklere kunne lage et timestamp. 
+
+I tillegg har vi en ny variabel `timeStamp` av samme type som extension-metoden returnerer.
+
+Gå til `timeline` og send inn timestamp:
+
+```
+  func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
+        var entries: [SimpleEntry] = []
+
+        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let currentDate = Date()
+        for hourOffset in 0 ..< 3 {
+            let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset, to: currentDate)!
+            
+            let secretMessage = switch(hourOffset){
+                case(0):
+                    "GOAT"
+                case(1):
+                    "Gedagedigedagedao"
+                case(2):
+                    "What the sigma?"
+                default:
+                 "oi oi oi"
+            }
+            
+            
+            
+            let entry = SimpleEntry(
+                timeStamp: Date().millisecondsSince1970,
+                secretMessage: secretMessage,
+                date: entryDate, configuration: configuration)
+            entries.append(entry)
+        }
+
+        return Timeline(entries: entries, policy: .never)
+    }
+```
+
+Nå er widgeten klar. La oss gå til app-koden.
+
+Naviger til `ContentView` i app-folderen i prosjektet ditt. Vi vil refreshe widgeten hver gang appen åpnes. Det er naturlig å tenke `onAppear()` viewmodifier her på contentView, men det vil ikke fungere. `onAppear` vil bare kjøre når view-koden rendres, men hvis den ligger i minne vil den ikke rendres på nytt, og da vil ikke refreshen av widgets kjøre. Vi må derfor lage en sjekk på om appen nettopp er åpnet.
+
+```
+
+import SwiftUI
+import WidgetKit
+
+struct ContentView: View {
+    @Environment(\.scenePhase) private var scenePhase
+
+    var body: some View {
+        HStack() {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
+            Text("Hello, world!")
+        }
+        .padding()
+        .onChange(of: scenePhase){
+            if scenePhase == ScenePhase.active {
+                print("App is now active")
+                WidgetCenter.shared.reloadAllTimelines()
+            }
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}
+
+```
+
+Her har vi importert WidgetKit samt hentet inn `.scenePhase` fra `@Environment`. Deretter har vi lagt på en `.onChange` viewmodifer på `HStack`-en vår, som kaller `WidgetCenter.shared.reloadAllTimelines()` hver gang scenePhase er active. 
+
+
+
+
+
+Nå bør koden kunne kjøre. I praksis vil appen din be widgeten din om å refreshe hvis når du åpner den. Husk på at både widgeten og appen din må bygges og kjøres på simulator/device ettersom vi har gjort endringer i begge prosjekter. Du kan bare kjøre én av prosjektene av gangen, så du må først bygge og kjøre det ene, deretter stoppe det, og bygge og kjøre det andre. Prøv å åpne appen ved å trykke på widgeten din, gå ut av appen og se at timetampet oppdaterer seg.
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
+
+<details>
+
+<summary>6. Future work</summary>
+
+
+
+Her slutter håndholdingen i workshopen, men jeg har et par utfordringer som dere kan prøve å finne ut av.
+
+## Refreshing av én widget
+Det går an å skille på ulike widgets som skal refreshes ved hjelp av AppIntents og og configurations, men jeg fikk ikke dette til i farta. Det er derfor en oppgave du kan sette i gang med, og del gjerne om du får det til å fungere. Her er sporte jeg begynte på, men endte opp med feilemldinger ved mismatch om INIntent og AppIntent... Apple har denne dokumentasjonen jeg tok utgangspunkt i https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date#Inform-WidgetKit-when-a-timeline-changes. Jeg modifiserte AppConfigurationen i prosjektet og la til en egen parameter jeg prøvde å sjekke mot, men fikk alltid nil i castingen til intent... så feilmeldingen til Apple stempte. 
+
+`Cast from 'INIntent?' to unrelated type 'ConfigurationAppIntent' always fails`
+
+
+## Share state med widget fra Appen
+Ofte henter dataen din data eller har data som du ønsker å vise i widgeten. Da kan du bruke App Groups til å lagre user defaults som widgeten kan ha tilgang til: https://developer.apple.com/documentation/xcode/configuring-app-groups 
+
+Et annet alternativ er å bruke swift data: https://www.hackingwithswift.com/quick-start/swiftdata/how-to-access-a-swiftdata-container-from-widgets
+
+
+## Gjør et nettverksskall for å hente data til widgeten din
+En annen ting du kan prøve på er å gjøre et nettverkskall i timeline for å hente data til widgeten din. 
 
 </details>
 
