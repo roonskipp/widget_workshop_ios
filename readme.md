@@ -57,16 +57,16 @@ Hvis man jobber med ulike produkter som Widget, iOS App, WatchOS app, så bytter
 
 I den nye mappen som ble generert ligger det fire filer. Nå inneholder de eksempelkode fra Apple for deres "Emoji Ranger Widget". 
 
-Alle filene begynner med navnet du valgte på widgtenen. Vi kommer til å kalle den for "widget_navn" i guiden. Filene er altså:
+Alle filene begynner med navnet du valgte på widgtenen. Filene er altså:
 
-1. widget_navn
-2. widget_navn_widgetBundle
-3. widget_navn_widgetControl
-4. widget_navn_widgetLiveActivity
+1. `<widget_navn>_widget`
+2. `<widget_navn>_widgetBundle`
+3. `<widget_navn>_widgetControl`
+4. `<widget_navn>_widgetLiveAcivity`
 5. AppIntent
 
 <details>
-<summary>widget_navn</summary>
+<summary>widget_navn_widget</summary>
 
 ### widget_navn
 Denne filen er selve widgeten, og det er her vi kommer til å jobbe mest i dag. Dette er filen som lager widget som lever på hjemskjermen og låseskjermen på iPhone. Nå inneholder filen et autogenerert widget-eksempel med noen emojis.
