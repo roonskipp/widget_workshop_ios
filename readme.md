@@ -763,6 +763,28 @@ Et annet alternativ er å bruke swift data: https://www.hackingwithswift.com/qui
 ## Gjør et nettverksskall for å hente data til widgeten din
 En annen ting du kan prøve på er å gjøre et nettverkskall i timeline for å hente data til widgeten din. 
 
+### Live Activity og Dynamic Island
+
+Hvis du noen gang har fått en timer på låseskjermen din på iPhone, f.eks ved mat-bestilling, eller navigasjonssintrukser som "ta til høyre om 400m" ved bruk av Apple Maps eller andre tjenester  – så er det widgetkit som er teknologien bak.
+
+Prøv å legg til en "LiveActivity"
+Dokumentasjon for liveActivity: 
+
+https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities
+
+### Lock screen widgets
+
+Det går an å få widgets på lock screen, for å gjøre det må du legge til nye typer widgets. 
+
+Lenke til dokumentasjon: https://developer.apple.com/documentation/widgetkit/supporting-additional-widget-sizes
+
+På bildet under finner ser du en table som viser noen av widgets-størrelsene og hvilke screens og devices som støtter dem.
+
+<img src="readme_images/widgets_and_names.png" height="500" />
+
+Bildekilde: https://developer.apple.com/design/human-interface-guidelines/widgets
+
+
 </details>
 
 <details>
@@ -791,6 +813,8 @@ Resultatet blir at widgeten kan gjøre 24 updates ila. døgnet, men får 60 "vie
 Når du kjører en widget via XCode gjelder ikke reglene for widget updates. Den kan gjøre så mange updates den bare vil. 
 
 Mange vil derfor kunne oppleve at alt fungerer normalt når de tester lokalt via XCode, men så fungerer det ikke for brukere via App Store. Da må man undersøke hva som er feil i oppdateringsfrekvensen av Widgeten og debugge.
+
+
 
 </details>
 
